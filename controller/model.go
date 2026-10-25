@@ -94,7 +94,7 @@ func init() {
 		openAIModelsMap[aiModel.Id] = aiModel
 	}
 	channelId2Models = make(map[int][]string)
-	for i := 1; i <= constant.ChannelTypeDummy; i++ {
+	for _, i := range constant.RegisteredChannelTypes() { // Manna hook
 		apiType, success := common.ChannelType2APIType(i)
 		if !success || apiType == constant.APITypeAIProxyLibrary {
 			continue

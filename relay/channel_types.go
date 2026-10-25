@@ -38,7 +38,7 @@ var (
 func GetRegisteredChannelTypes() []ChannelTypeMetadata {
 	channelTypeMetadataOnce.Do(func() {
 		items := make([]ChannelTypeMetadata, 0, constant.ChannelTypeDummy)
-		for channelType := 1; channelType <= constant.ChannelTypeDummy; channelType++ {
+		for _, channelType := range constant.RegisteredChannelTypes() { // Manna hook
 			item, ok := buildChannelTypeMetadata(channelType)
 			if ok {
 				items = append(items, item)
