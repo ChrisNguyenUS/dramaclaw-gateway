@@ -3,6 +3,9 @@ package common
 import "github.com/QuantumNous/new-api/constant"
 
 func ChannelType2APIType(channelType int) (int, bool) {
+	if channelType == constant.ChannelTypeLumixAI { // Manna hook (docs/upstream-patches.md)
+		return constant.APITypeLumixAI, true
+	}
 	apiType := -1
 	switch channelType {
 	case constant.ChannelTypeOpenAI:

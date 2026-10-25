@@ -22,6 +22,7 @@ import (
 	"github.com/QuantumNous/new-api/relay/channel/gemini"
 	"github.com/QuantumNous/new-api/relay/channel/jimeng"
 	"github.com/QuantumNous/new-api/relay/channel/jina"
+	"github.com/QuantumNous/new-api/relay/channel/lumixai"
 	"github.com/QuantumNous/new-api/relay/channel/minimax"
 	"github.com/QuantumNous/new-api/relay/channel/mistral"
 	"github.com/QuantumNous/new-api/relay/channel/mokaai"
@@ -130,6 +131,8 @@ func GetAdaptor(apiType int) channel.Adaptor {
 		return &replicate.Adaptor{}
 	case constant.APITypeCodex:
 		return &codex.Adaptor{}
+	case constant.APITypeLumixAI: // Manna hook
+		return &lumixai.Adaptor{}
 	case constant.APITypeFal:
 		return &fal.Adaptor{}
 	case constant.APITypeAdvancedCustom:
