@@ -137,7 +137,7 @@ func videoProxy(c *gin.Context, public bool) {
 	case constant.ChannelTypeOpenAI, constant.ChannelTypeSora:
 		videoURL = fmt.Sprintf("%s/v1/videos/%s/content", baseURL, task.GetUpstreamTaskID())
 		req.Header.Set("Authorization", "Bearer "+channel.Key)
-	case constant.ChannelTypeComfyUI:
+	case constant.ChannelTypeComfyUI, constant.ChannelTypeLumixAI: // Manna hook: same-origin result URL + X-API-Key
 		videoURL = strings.TrimSpace(task.PrivateData.UpstreamResultURL)
 		if videoURL == "" {
 			videoURL = task.GetResultURL()
