@@ -84,6 +84,7 @@ export const CHANNEL_TYPES = {
   61: 'fal.ai',
   62: 'DoubaoAudio',
   63: 'ComfyUI',
+  1001: 'LumixAI', // Manna: channel type registered in constant/channel_manna.go
 } as const
 
 const CHANNEL_TYPE_DISPLAY_ORDER: number[] = [
